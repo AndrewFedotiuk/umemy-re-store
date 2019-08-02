@@ -10,7 +10,7 @@ const ShoppingCartTable = ({ items, total, onIncrease, onDecrease, onDelete }) =
 
     return (
       <tr key={id}>
-        <td>{idx+1}</td>
+        <td>{idx + 1}</td>
         <td>{title}</td>
         <td>{count}</td>
         <td>${total}</td>
@@ -70,7 +70,7 @@ const ShoppingCartTable = ({ items, total, onIncrease, onDecrease, onDelete }) =
   );
 };
 
-const mapStateToProps = ({ cartItems, orderTotal }) => {
+const mapStateToProps = ({ shoppingCart: { cartItems, orderTotal } }) => {
   return {
     items: cartItems,
     total: orderTotal
@@ -78,9 +78,9 @@ const mapStateToProps = ({ cartItems, orderTotal }) => {
 }
 
 const mapDispatchToProps = {
-    onDecrease: bookRemovedFromCart,
-    onIncrease: bookAddedToCart,
-    onDelete: allBooksRemovedFromCart
+  onDecrease: bookRemovedFromCart,
+  onIncrease: bookAddedToCart,
+  onDelete: allBooksRemovedFromCart
 }
 
 export default connect(
